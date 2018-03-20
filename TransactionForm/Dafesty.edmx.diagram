@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ae69427bc41c4a368b299d6774be07de" Name="Diagram1">
+      <Diagram DiagramId="fb2cb3a223a945f6974e39886c0ba77d" Name="Diagram1">
         <EntityTypeShape EntityType="DafestyModel.Customer" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="DafestyModel.IssueTran" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DafestyModel.Movie" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />

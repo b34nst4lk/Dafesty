@@ -131,7 +131,7 @@
           <Property Name="RentalStatus" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
           <Property Name="Remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_IssueTran_Customers" FromRole="IssueTran" ToRole="Customers" />
-          <NavigationProperty Name="Movy" Relationship="Self.FK_IssueTran_Movies1" FromRole="IssueTran" ToRole="Movies" />
+          <NavigationProperty Name="Movie" Relationship="Self.FK_IssueTran_Movies1" FromRole="IssueTran" ToRole="Movies" />
         </EntityType>
         <EntityType Name="Movie">
           <Key>
@@ -173,16 +173,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DafestyEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DafestyEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="IssueTrans" EntityType="Self.IssueTran" />
-          <EntitySet Name="Movies1" EntityType="DafestyModel.Movie" />
+          <EntitySet Name="Movies" EntityType="DafestyModel.Movie" />
           <AssociationSet Name="FK_IssueTran_Customers" Association="Self.FK_IssueTran_Customers">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="IssueTran" EntitySet="IssueTrans" />
           </AssociationSet>
           <AssociationSet Name="FK_IssueTran_Movies1" Association="Self.FK_IssueTran_Movies1">
-            <End Role="Movies" EntitySet="Movies1" />
+            <End Role="Movies" EntitySet="Movies" />
             <End Role="IssueTran" EntitySet="IssueTrans" />
           </AssociationSet>
         </EntityContainer>
@@ -191,7 +191,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DafestyModelStoreContainer" CdmEntityContainer="DafestyEntities1">
+        <EntityContainerMapping StorageEntityContainer="DafestyModelStoreContainer" CdmEntityContainer="DafestyEntities">
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="DafestyModel.Customer">
               <MappingFragment StoreEntitySet="Customers">
@@ -228,7 +228,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Movies1">
+          <EntitySetMapping Name="Movies">
             <EntityTypeMapping TypeName="DafestyModel.Movie">
               <MappingFragment StoreEntitySet="Movies">
                 <ScalarProperty Name="VideoCode" ColumnName="VideoCode" />

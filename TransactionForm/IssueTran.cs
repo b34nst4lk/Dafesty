@@ -24,6 +24,6 @@ namespace TransactionForm
         public string Remarks { get; set; }
     
         public virtual Customer Customer { get; set; }
-        public virtual Movie Movy { get; set; }
+        public virtual Movie Movie { get; set; }
     }
 }
