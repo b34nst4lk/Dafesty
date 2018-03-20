@@ -15,8 +15,6 @@ namespace TransactionForm
         public TransactionForm()
         {
             InitializeComponent();
-
         }
-
     }
 }

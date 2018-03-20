@@ -13,10 +13,10 @@ namespace TransactionForm
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DafestyEntities1 : DbContext
+    public partial class DafestyEntities : DbContext
     {
-        public DafestyEntities1()
-            : base("name=DafestyEntities1")
+        public DafestyEntities()
+            : base("name=DafestyEntities")
         {
         }
     
