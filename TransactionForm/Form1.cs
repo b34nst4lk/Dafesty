@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace TransactionForm
 {
-    public partial class Form1 : Form
+    public partial class TransactionForm : Form
     {
-        public Form1()
+        public TransactionForm()
         {
             InitializeComponent();
+
         }
+
     }
 }
