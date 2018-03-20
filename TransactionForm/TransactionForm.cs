@@ -37,6 +37,7 @@ namespace TransactionForm
             LoanOutput.DataSource = loanOutput;
             LoanOutput.AutoGenerateColumns = false;
 
+            // Initialize Return form
             returnOutput = new BindingSource();
             ReturnOutput.DataSource = returnOutput;
             ReturnOutput.AutoGenerateColumns = false;
@@ -203,6 +204,72 @@ namespace TransactionForm
             catch (ItemNotFound err)
             {
                 StatusLabel.Text = err.Message;
+            }
+        }
+
+        // Return Event Handlers
+
+        private void ReturnSearchCustomer_Click(object sender, EventArgs e)
+        {
+            StatusLabel.Text = "";
+            try
+            {
+                Customer c = GetCustomerById(ReturnCustomerID.Text);
+
+                foreach (IssueTran tran in c.IssueTrans)
+                {
+                    returnOutput.Add(tran);
+                    DataGridViewRow row = ReturnOutput.Rows[ReturnOutput.Rows.Count - 1];
+                    row.Cells["MovieTitle"].Value = context.Movies.First(x => x.VideoCode == tran.VideoCode).MovieTitle;
+                    if (!(tran.DateDue is null))
+                    {
+                        DateTime dt = (DateTime)tran.DateDue;
+                        row.Cells["ReturnDueDate"].Value = dt.ToString("dd/MM/yy"); 
+                    }
+                }
+            }
+            catch (ApplicationException err)
+            {
+                StatusLabel.Text = err.Message;
+            }
+        }
+
+        private void ReturnOutput_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (ReturnOutput.Columns[e.ColumnIndex].Name == "ToReturn" && e.RowIndex > -1)
+            {
+                DataGridViewCell cell = ReturnOutput.Rows[e.RowIndex].Cells["ToReturn"];
+                if (cell.Value is null)
+                    cell.Value = "Return";
+                else
+                    cell.Value = null;
+            }
+        }
+
+        private void ReturnVideos_Click(object sender, EventArgs e)
+        {
+            List<DataGridViewRow> returnedMovies = new List<DataGridViewRow>();
+
+            foreach (DataGridViewRow row in ReturnOutput.Rows)
+            {
+                if (!(row.Cells["ToReturn"].Value is null))
+                {
+                    short transId = Int16.Parse(row.Cells["ReturnTransactionId"].Value.ToString());
+                    IssueTran tran = context.IssueTrans.First(x => x.TransactionID == transId);
+                    tran.DateActualReturn = DateTime.Now;
+                    if (!(row.Cells["ReturnRemarks"].Value is null))
+                        tran.Remarks = row.Cells["ReturnRemarks"].Value.ToString();
+                    tran.RentalStatus = "in";
+
+                    tran.Movie.NumberRented--;
+                    context.SaveChanges();
+                    returnedMovies.Add(row);
+                }
+            }
+
+            foreach (DataGridViewRow row in returnedMovies)
+            {
+                ReturnOutput.Rows.Remove(row);
             }
         }
     }
