@@ -53,17 +53,21 @@ namespace TransactionForm
 
         public Customer GetCustomerById(string custId)
         {
+            if (custId == "")
+                throw new InvalidID("Customer ID must not be blank");
+
             Customer cust = context.Customers.FirstOrDefault(x => x.CustomerID == custId);
             if (cust is null)
-            {
                 throw new ItemNotFound(String.Format("No Customer with Id {0}", custId));
-            }
+
             return cust;
         }
 
         public Movie GetMovieById(string movieIdStr)
         {
-            if (Int16.TryParse(movieIdStr, out short movieId))
+            if (movieIdStr == "")
+                throw new InvalidID("Video Code must not be blank");
+            else if (Int16.TryParse(movieIdStr, out short movieId))
             {
                 Movie movie = context.Movies.FirstOrDefault(x => x.VideoCode == movieId);
                 if (movie is null)
@@ -72,10 +76,7 @@ namespace TransactionForm
                     return movie;
             }
             else
-            {
                 throw new InvalidID(String.Format("{0} is an invalid ID.", movieIdStr));
-            }
-
         }
 
         public void ClearForms()
@@ -114,11 +115,7 @@ namespace TransactionForm
 
                 StatusLabel.Text = String.Format("{0} successfully added.", m.MovieTitle.Trim());
             }
-            catch (InvalidID err)
-            {
-                StatusLabel.Text = err.Message;
-            }
-            catch (ItemNotFound err)
+            catch (ApplicationException err)
             {
                 StatusLabel.Text = err.Message;
             }
@@ -130,16 +127,19 @@ namespace TransactionForm
 
         private void LoanOutput_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            StatusLabel.Text = "";
-
-            short movieId = short.Parse(LoanOutput.Rows[e.RowIndex].Cells["LoanVideoCode"].Value.ToString());
-            
-            foreach (Movie m in loanOutput)
+            if (LoanOutput.Columns[e.ColumnIndex].Name == "LoanDelete")
             {
-                if (m.VideoCode == movieId)
+                StatusLabel.Text = "";
+
+                short movieId = short.Parse(LoanOutput.Rows[e.RowIndex].Cells["LoanVideoCode"].Value.ToString());
+
+                foreach (Movie m in loanOutput)
                 {
-                    loanOutput.Remove(m);
-                    break;
+                    if (m.VideoCode == movieId)
+                    {
+                        loanOutput.Remove(m);
+                        break;
+                    }
                 }
             }
         }
@@ -168,7 +168,7 @@ namespace TransactionForm
                         IssueTran tran = new IssueTran();
                         tran.TransactionID = (short)transactionId++;
                         tran.CustomerID = LoanCustomerID.Text;
-                        tran.VideoCode = movieId;
+                        tran.Movie = m;
                         tran.DateIssue = today;
                         tran.DateDue = dueDate;
                         tran.DateActualReturn = null;
