@@ -27,6 +27,6 @@ namespace TransactionForm
     
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<IssueTran> IssueTrans { get; set; }
-        public virtual DbSet<Movy> Movies { get; set; }
+        public virtual DbSet<Movie> Movies1 { get; set; }
     }
 }
