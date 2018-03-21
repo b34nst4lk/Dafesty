@@ -51,6 +51,12 @@
             this.LoanCustomerIDLabel = new System.Windows.Forms.Label();
             this.ReturnTab = new System.Windows.Forms.TabPage();
             this.ReturnOutput = new System.Windows.Forms.DataGridView();
+            this.ReturnTransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnVideoCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MovieTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ToReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReturnClearForm = new System.Windows.Forms.Button();
             this.ReturnVideos = new System.Windows.Forms.Button();
             this.ReturnSearchCustomer = new System.Windows.Forms.Button();
@@ -59,12 +65,6 @@
             this.StatusBar = new System.Windows.Forms.StatusStrip();
             this.Status = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ReturnTransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReturnVideoCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MovieTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReturnDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReturnRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ToReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LoanTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoanOutput)).BeginInit();
@@ -310,6 +310,45 @@
             this.ReturnOutput.TabIndex = 7;
             this.ReturnOutput.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ReturnOutput_CellClick);
             // 
+            // ReturnTransactionID
+            // 
+            this.ReturnTransactionID.DataPropertyName = "TransactionID";
+            this.ReturnTransactionID.HeaderText = "Transaction ID";
+            this.ReturnTransactionID.Name = "ReturnTransactionID";
+            this.ReturnTransactionID.ReadOnly = true;
+            // 
+            // ReturnVideoCode
+            // 
+            this.ReturnVideoCode.DataPropertyName = "VideoCode";
+            this.ReturnVideoCode.HeaderText = "Video Code";
+            this.ReturnVideoCode.Name = "ReturnVideoCode";
+            this.ReturnVideoCode.ReadOnly = true;
+            // 
+            // MovieTitle
+            // 
+            this.MovieTitle.HeaderText = "Movie Title";
+            this.MovieTitle.Name = "MovieTitle";
+            this.MovieTitle.ReadOnly = true;
+            // 
+            // ReturnDueDate
+            // 
+            this.ReturnDueDate.HeaderText = "Due Date";
+            this.ReturnDueDate.Name = "ReturnDueDate";
+            this.ReturnDueDate.ReadOnly = true;
+            // 
+            // ReturnRemarks
+            // 
+            this.ReturnRemarks.DataPropertyName = "Remarks";
+            this.ReturnRemarks.HeaderText = "Remarks";
+            this.ReturnRemarks.Name = "ReturnRemarks";
+            this.ReturnRemarks.ReadOnly = true;
+            // 
+            // ToReturn
+            // 
+            this.ToReturn.HeaderText = "Click to toggle Return";
+            this.ToReturn.Name = "ToReturn";
+            this.ToReturn.ReadOnly = true;
+            // 
             // ReturnClearForm
             // 
             this.ReturnClearForm.Location = new System.Drawing.Point(560, 384);
@@ -326,7 +365,7 @@
             this.ReturnVideos.Name = "ReturnVideos";
             this.ReturnVideos.Size = new System.Drawing.Size(120, 23);
             this.ReturnVideos.TabIndex = 6;
-            this.ReturnVideos.Text = "Return Videos";
+            this.ReturnVideos.Text = "Return Movies";
             this.ReturnVideos.UseVisualStyleBackColor = true;
             this.ReturnVideos.Click += new System.EventHandler(this.ReturnVideos_Click);
             // 
@@ -376,45 +415,6 @@
             // 
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(0, 17);
-            // 
-            // ReturnTransactionID
-            // 
-            this.ReturnTransactionID.DataPropertyName = "TransactionID";
-            this.ReturnTransactionID.HeaderText = "Transaction ID";
-            this.ReturnTransactionID.Name = "ReturnTransactionID";
-            this.ReturnTransactionID.ReadOnly = true;
-            // 
-            // ReturnVideoCode
-            // 
-            this.ReturnVideoCode.DataPropertyName = "VideoCode";
-            this.ReturnVideoCode.HeaderText = "Video Code";
-            this.ReturnVideoCode.Name = "ReturnVideoCode";
-            this.ReturnVideoCode.ReadOnly = true;
-            // 
-            // MovieTitle
-            // 
-            this.MovieTitle.HeaderText = "Movie Title";
-            this.MovieTitle.Name = "MovieTitle";
-            this.MovieTitle.ReadOnly = true;
-            // 
-            // ReturnDueDate
-            // 
-            this.ReturnDueDate.HeaderText = "Due Date";
-            this.ReturnDueDate.Name = "ReturnDueDate";
-            this.ReturnDueDate.ReadOnly = true;
-            // 
-            // ReturnRemarks
-            // 
-            this.ReturnRemarks.DataPropertyName = "Remarks";
-            this.ReturnRemarks.HeaderText = "Remarks";
-            this.ReturnRemarks.Name = "ReturnRemarks";
-            this.ReturnRemarks.ReadOnly = true;
-            // 
-            // ToReturn
-            // 
-            this.ToReturn.HeaderText = "Click to toggle Return";
-            this.ToReturn.Name = "ToReturn";
-            this.ToReturn.ReadOnly = true;
             // 
             // TransactionForm
             // 
