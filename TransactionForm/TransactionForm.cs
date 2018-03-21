@@ -212,6 +212,7 @@ namespace TransactionForm
         private void ReturnSearchCustomer_Click(object sender, EventArgs e)
         {
             StatusLabel.Text = "";
+            returnOutput.Clear();
 
             try
             {
