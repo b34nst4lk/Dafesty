@@ -119,7 +119,7 @@ namespace TransactionForm
 
         private void LoanOutput_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (LoanOutput.Columns[e.ColumnIndex].Name == "LoanDelete")
+            if (LoanOutput.Columns[e.ColumnIndex].Name == "LoanDelete" && e.RowIndex > -1)
             {
                 StatusLabel.Text = "";
 
