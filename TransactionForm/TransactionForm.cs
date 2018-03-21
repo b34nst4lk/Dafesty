@@ -201,7 +201,7 @@ namespace TransactionForm
                     StatusLabel.Text = String.Format("Successfully checkedout movies for {0}.", c.CustomerName);
                 }
             }
-            catch (ItemNotFound err)
+            catch (ApplicationException err)
             {
                 StatusLabel.Text = err.Message;
             }
