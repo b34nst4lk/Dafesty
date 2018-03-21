@@ -27,7 +27,6 @@ namespace TransactionForm
             context = new DafestyEntities();
 
             // Initialize Loan form
-            TransactionID.Text = GenNewTransactionID();
             today = DateTime.Today;
             dueDate = today.AddDays(3);
             BorrowDate.Text = today.ToString("dd/MM/yy");
@@ -44,12 +43,6 @@ namespace TransactionForm
         }
 
         // Helper Functions
-
-        public string GenNewTransactionID()
-        {
-            int transId = context.IssueTrans.Select(x => x.TransactionID).ToList().Max() + 1;
-            return transId.ToString();
-        }
 
         public Customer GetCustomerById(string custId)
         {
@@ -87,7 +80,6 @@ namespace TransactionForm
 
             ReturnCustomerID.Clear();
             returnOutput.Clear();
-            TransactionID.Text = GenNewTransactionID();
         }
 
         // Shared Event Handlers
@@ -152,7 +144,6 @@ namespace TransactionForm
             try
             {
                 Customer c = GetCustomerById(LoanCustomerID.Text);
-                int transactionId = Int32.Parse(TransactionID.Text) - 1;
 
                 List<DataGridViewRow> checkedOutMovies = new List<DataGridViewRow>();
 
@@ -166,7 +157,6 @@ namespace TransactionForm
                     {
                         // Create new IssueTran object
                         IssueTran tran = new IssueTran();
-                        tran.TransactionID = (short)transactionId++;
                         tran.CustomerID = LoanCustomerID.Text;
                         tran.Movie = m;
                         tran.DateIssue = today;

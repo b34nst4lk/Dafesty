@@ -30,7 +30,6 @@
         {
             this.LoanTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.LoanTransactionIDLabel = new System.Windows.Forms.Label();
             this.Checkout = new System.Windows.Forms.Button();
             this.ClearForm = new System.Windows.Forms.Button();
             this.LoanOutput = new System.Windows.Forms.DataGridView();
@@ -43,7 +42,6 @@
             this.DueDate = new System.Windows.Forms.TextBox();
             this.BorrowDate = new System.Windows.Forms.TextBox();
             this.LoanCustomerID = new System.Windows.Forms.TextBox();
-            this.TransactionID = new System.Windows.Forms.TextBox();
             this.AddVideo = new System.Windows.Forms.Button();
             this.LoanVideoCodeLabel = new System.Windows.Forms.Label();
             this.LoanDueDateLabel = new System.Windows.Forms.Label();
@@ -85,7 +83,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.LoanTransactionIDLabel);
             this.tabPage1.Controls.Add(this.Checkout);
             this.tabPage1.Controls.Add(this.ClearForm);
             this.tabPage1.Controls.Add(this.LoanOutput);
@@ -93,7 +90,6 @@
             this.tabPage1.Controls.Add(this.DueDate);
             this.tabPage1.Controls.Add(this.BorrowDate);
             this.tabPage1.Controls.Add(this.LoanCustomerID);
-            this.tabPage1.Controls.Add(this.TransactionID);
             this.tabPage1.Controls.Add(this.AddVideo);
             this.tabPage1.Controls.Add(this.LoanVideoCodeLabel);
             this.tabPage1.Controls.Add(this.LoanDueDateLabel);
@@ -107,18 +103,9 @@
             this.tabPage1.Text = "Loan";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // LoanTransactionIDLabel
-            // 
-            this.LoanTransactionIDLabel.AutoSize = true;
-            this.LoanTransactionIDLabel.Location = new System.Drawing.Point(16, 24);
-            this.LoanTransactionIDLabel.Name = "LoanTransactionIDLabel";
-            this.LoanTransactionIDLabel.Size = new System.Drawing.Size(102, 13);
-            this.LoanTransactionIDLabel.TabIndex = 0;
-            this.LoanTransactionIDLabel.Text = "First Transaction ID:";
-            // 
             // Checkout
             // 
-            this.Checkout.Location = new System.Drawing.Point(736, 424);
+            this.Checkout.Location = new System.Drawing.Point(736, 392);
             this.Checkout.Name = "Checkout";
             this.Checkout.Size = new System.Drawing.Size(75, 23);
             this.Checkout.TabIndex = 5;
@@ -128,7 +115,7 @@
             // 
             // ClearForm
             // 
-            this.ClearForm.Location = new System.Drawing.Point(648, 424);
+            this.ClearForm.Location = new System.Drawing.Point(648, 392);
             this.ClearForm.Name = "ClearForm";
             this.ClearForm.Size = new System.Drawing.Size(75, 23);
             this.ClearForm.TabIndex = 5;
@@ -148,7 +135,7 @@
             this.LoanRemarks,
             this.LoanStock,
             this.LoanDelete});
-            this.LoanOutput.Location = new System.Drawing.Point(8, 152);
+            this.LoanOutput.Location = new System.Drawing.Point(8, 120);
             this.LoanOutput.Name = "LoanOutput";
             this.LoanOutput.Size = new System.Drawing.Size(808, 256);
             this.LoanOutput.TabIndex = 4;
@@ -193,7 +180,7 @@
             // 
             // VideoCode
             // 
-            this.VideoCode.Location = new System.Drawing.Point(128, 112);
+            this.VideoCode.Location = new System.Drawing.Point(128, 80);
             this.VideoCode.Name = "VideoCode";
             this.VideoCode.Size = new System.Drawing.Size(96, 20);
             this.VideoCode.TabIndex = 3;
@@ -201,7 +188,7 @@
             // DueDate
             // 
             this.DueDate.Enabled = false;
-            this.DueDate.Location = new System.Drawing.Point(312, 82);
+            this.DueDate.Location = new System.Drawing.Point(312, 50);
             this.DueDate.Name = "DueDate";
             this.DueDate.Size = new System.Drawing.Size(96, 20);
             this.DueDate.TabIndex = 3;
@@ -209,29 +196,21 @@
             // BorrowDate
             // 
             this.BorrowDate.Enabled = false;
-            this.BorrowDate.Location = new System.Drawing.Point(128, 80);
+            this.BorrowDate.Location = new System.Drawing.Point(128, 48);
             this.BorrowDate.Name = "BorrowDate";
             this.BorrowDate.Size = new System.Drawing.Size(96, 20);
             this.BorrowDate.TabIndex = 3;
             // 
             // LoanCustomerID
             // 
-            this.LoanCustomerID.Location = new System.Drawing.Point(128, 47);
+            this.LoanCustomerID.Location = new System.Drawing.Point(128, 15);
             this.LoanCustomerID.Name = "LoanCustomerID";
             this.LoanCustomerID.Size = new System.Drawing.Size(96, 20);
             this.LoanCustomerID.TabIndex = 3;
             // 
-            // TransactionID
-            // 
-            this.TransactionID.Enabled = false;
-            this.TransactionID.Location = new System.Drawing.Point(128, 20);
-            this.TransactionID.Name = "TransactionID";
-            this.TransactionID.Size = new System.Drawing.Size(96, 20);
-            this.TransactionID.TabIndex = 3;
-            // 
             // AddVideo
             // 
-            this.AddVideo.Location = new System.Drawing.Point(244, 112);
+            this.AddVideo.Location = new System.Drawing.Point(286, 80);
             this.AddVideo.Name = "AddVideo";
             this.AddVideo.Size = new System.Drawing.Size(109, 23);
             this.AddVideo.TabIndex = 2;
@@ -242,7 +221,7 @@
             // LoanVideoCodeLabel
             // 
             this.LoanVideoCodeLabel.AutoSize = true;
-            this.LoanVideoCodeLabel.Location = new System.Drawing.Point(16, 116);
+            this.LoanVideoCodeLabel.Location = new System.Drawing.Point(16, 84);
             this.LoanVideoCodeLabel.Name = "LoanVideoCodeLabel";
             this.LoanVideoCodeLabel.Size = new System.Drawing.Size(62, 13);
             this.LoanVideoCodeLabel.TabIndex = 0;
@@ -251,7 +230,7 @@
             // LoanDueDateLabel
             // 
             this.LoanDueDateLabel.AutoSize = true;
-            this.LoanDueDateLabel.Location = new System.Drawing.Point(240, 84);
+            this.LoanDueDateLabel.Location = new System.Drawing.Point(240, 52);
             this.LoanDueDateLabel.Name = "LoanDueDateLabel";
             this.LoanDueDateLabel.Size = new System.Drawing.Size(56, 13);
             this.LoanDueDateLabel.TabIndex = 0;
@@ -260,7 +239,7 @@
             // LoanBorrowDateLabel
             // 
             this.LoanBorrowDateLabel.AutoSize = true;
-            this.LoanBorrowDateLabel.Location = new System.Drawing.Point(16, 84);
+            this.LoanBorrowDateLabel.Location = new System.Drawing.Point(16, 52);
             this.LoanBorrowDateLabel.Name = "LoanBorrowDateLabel";
             this.LoanBorrowDateLabel.Size = new System.Drawing.Size(69, 13);
             this.LoanBorrowDateLabel.TabIndex = 0;
@@ -269,7 +248,7 @@
             // LoanCustomerIDLabel
             // 
             this.LoanCustomerIDLabel.AutoSize = true;
-            this.LoanCustomerIDLabel.Location = new System.Drawing.Point(16, 48);
+            this.LoanCustomerIDLabel.Location = new System.Drawing.Point(16, 16);
             this.LoanCustomerIDLabel.Name = "LoanCustomerIDLabel";
             this.LoanCustomerIDLabel.Size = new System.Drawing.Size(68, 13);
             this.LoanCustomerIDLabel.TabIndex = 0;
@@ -447,13 +426,11 @@
         private System.Windows.Forms.TextBox DueDate;
         private System.Windows.Forms.TextBox BorrowDate;
         private System.Windows.Forms.TextBox LoanCustomerID;
-        private System.Windows.Forms.TextBox TransactionID;
         private System.Windows.Forms.Button AddVideo;
         private System.Windows.Forms.Label LoanVideoCodeLabel;
         private System.Windows.Forms.Label LoanDueDateLabel;
         private System.Windows.Forms.Label LoanBorrowDateLabel;
         private System.Windows.Forms.Label LoanCustomerIDLabel;
-        private System.Windows.Forms.Label LoanTransactionIDLabel;
         private System.Windows.Forms.TabPage ReturnTab;
         private System.Windows.Forms.StatusStrip StatusBar;
         private System.Windows.Forms.DataGridView LoanOutput;
