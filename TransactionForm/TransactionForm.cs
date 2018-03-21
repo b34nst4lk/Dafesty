@@ -212,21 +212,31 @@ namespace TransactionForm
         private void ReturnSearchCustomer_Click(object sender, EventArgs e)
         {
             StatusLabel.Text = "";
+
             try
             {
                 Customer c = GetCustomerById(ReturnCustomerID.Text);
 
                 foreach (IssueTran tran in c.IssueTrans)
                 {
-                    returnOutput.Add(tran);
-                    DataGridViewRow row = ReturnOutput.Rows[ReturnOutput.Rows.Count - 1];
-                    row.Cells["MovieTitle"].Value = context.Movies.First(x => x.VideoCode == tran.VideoCode).MovieTitle;
-                    if (!(tran.DateDue is null))
+                    if (tran.RentalStatus == "out")
                     {
-                        DateTime dt = (DateTime)tran.DateDue;
-                        row.Cells["ReturnDueDate"].Value = dt.ToString("dd/MM/yy"); 
+                        returnOutput.Add(tran);
+
+                        DataGridViewRow row = ReturnOutput.Rows[ReturnOutput.Rows.Count - 1];
+                        row.Cells["MovieTitle"].Value = context.Movies.First(x => x.VideoCode == tran.VideoCode).MovieTitle;
+                        if (!(tran.DateDue is null))
+                        {
+                            DateTime dt = (DateTime)tran.DateDue;
+                            row.Cells["ReturnDueDate"].Value = dt.ToString("dd/MM/yy");
+                        }
                     }
                 }
+
+                if (returnOutput.Count > 0)
+                    StatusLabel.Text = String.Format("Successfully retrieved loaned movies for {0}", c.CustomerName);
+                else
+                    StatusLabel.Text = String.Format("No movies on loan for {0}", c.CustomerName);
             }
             catch (ApplicationException err)
             {
