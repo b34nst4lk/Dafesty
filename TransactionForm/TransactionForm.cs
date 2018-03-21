@@ -197,6 +197,12 @@ namespace TransactionForm
             }
         }
 
+        private void LookUpCustomer_Click(object sender, EventArgs e)
+        {
+            CustomerLookupForm f = new CustomerLookupForm(this, LoanCustomerID, LoanCustomerName);
+            f.ShowDialog();
+        }
+
         // Return Event Handlers
 
         private void ReturnSearchCustomer_Click(object sender, EventArgs e)
@@ -237,7 +243,7 @@ namespace TransactionForm
 
         private void ReturnOutput_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (ReturnOutput.Columns[e.ColumnIndex].Name == "ToReturn" && e.RowIndex > -1)
+            if (e.RowIndex > -1 && e.ColumnIndex > -1 && ReturnOutput.Columns[e.ColumnIndex].Name == "ToReturn")
             {
                 DataGridViewCell cell = ReturnOutput.Rows[e.RowIndex].Cells["ToReturn"];
                 if (cell.Value is null)
@@ -272,12 +278,6 @@ namespace TransactionForm
             {
                 ReturnOutput.Rows.Remove(row);
             }
-        }
-
-        private void LookUpCustomer_Click(object sender, EventArgs e)
-        {
-            CustomerLookupForm f = new CustomerLookupForm(this, LoanCustomerID, LoanCustomerName);
-            f.ShowDialog();
         }
     }
 }
