@@ -30,6 +30,8 @@
         {
             this.LoanTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.LookUpVideo = new System.Windows.Forms.Button();
+            this.LookUpCustomer = new System.Windows.Forms.Button();
             this.Checkout = new System.Windows.Forms.Button();
             this.ClearForm = new System.Windows.Forms.Button();
             this.LoanOutput = new System.Windows.Forms.DataGridView();
@@ -63,6 +65,8 @@
             this.StatusBar = new System.Windows.Forms.StatusStrip();
             this.Status = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LoanCustomerName = new System.Windows.Forms.TextBox();
+            this.LoanCustomerNameLabel = new System.Windows.Forms.Label();
             this.LoanTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoanOutput)).BeginInit();
@@ -83,17 +87,21 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.LookUpVideo);
+            this.tabPage1.Controls.Add(this.LookUpCustomer);
             this.tabPage1.Controls.Add(this.Checkout);
             this.tabPage1.Controls.Add(this.ClearForm);
             this.tabPage1.Controls.Add(this.LoanOutput);
             this.tabPage1.Controls.Add(this.VideoCode);
             this.tabPage1.Controls.Add(this.DueDate);
             this.tabPage1.Controls.Add(this.BorrowDate);
+            this.tabPage1.Controls.Add(this.LoanCustomerName);
             this.tabPage1.Controls.Add(this.LoanCustomerID);
             this.tabPage1.Controls.Add(this.AddVideo);
             this.tabPage1.Controls.Add(this.LoanVideoCodeLabel);
             this.tabPage1.Controls.Add(this.LoanDueDateLabel);
             this.tabPage1.Controls.Add(this.LoanBorrowDateLabel);
+            this.tabPage1.Controls.Add(this.LoanCustomerNameLabel);
             this.tabPage1.Controls.Add(this.LoanCustomerIDLabel);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -103,9 +111,28 @@
             this.tabPage1.Text = "Loan";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // LookUpVideo
+            // 
+            this.LookUpVideo.Location = new System.Drawing.Point(218, 112);
+            this.LookUpVideo.Name = "LookUpVideo";
+            this.LookUpVideo.Size = new System.Drawing.Size(32, 23);
+            this.LookUpVideo.TabIndex = 6;
+            this.LookUpVideo.Text = "...";
+            this.LookUpVideo.UseVisualStyleBackColor = true;
+            // 
+            // LookUpCustomer
+            // 
+            this.LookUpCustomer.Location = new System.Drawing.Point(218, 11);
+            this.LookUpCustomer.Name = "LookUpCustomer";
+            this.LookUpCustomer.Size = new System.Drawing.Size(32, 23);
+            this.LookUpCustomer.TabIndex = 6;
+            this.LookUpCustomer.Text = "...";
+            this.LookUpCustomer.UseVisualStyleBackColor = true;
+            this.LookUpCustomer.Click += new System.EventHandler(this.LookUpCustomer_Click);
+            // 
             // Checkout
             // 
-            this.Checkout.Location = new System.Drawing.Point(736, 392);
+            this.Checkout.Location = new System.Drawing.Point(736, 424);
             this.Checkout.Name = "Checkout";
             this.Checkout.Size = new System.Drawing.Size(75, 23);
             this.Checkout.TabIndex = 5;
@@ -115,7 +142,7 @@
             // 
             // ClearForm
             // 
-            this.ClearForm.Location = new System.Drawing.Point(648, 392);
+            this.ClearForm.Location = new System.Drawing.Point(648, 424);
             this.ClearForm.Name = "ClearForm";
             this.ClearForm.Size = new System.Drawing.Size(75, 23);
             this.ClearForm.TabIndex = 5;
@@ -135,7 +162,7 @@
             this.LoanRemarks,
             this.LoanStock,
             this.LoanDelete});
-            this.LoanOutput.Location = new System.Drawing.Point(8, 120);
+            this.LoanOutput.Location = new System.Drawing.Point(8, 152);
             this.LoanOutput.Name = "LoanOutput";
             this.LoanOutput.Size = new System.Drawing.Size(808, 256);
             this.LoanOutput.TabIndex = 4;
@@ -180,7 +207,7 @@
             // 
             // VideoCode
             // 
-            this.VideoCode.Location = new System.Drawing.Point(128, 80);
+            this.VideoCode.Location = new System.Drawing.Point(106, 112);
             this.VideoCode.Name = "VideoCode";
             this.VideoCode.Size = new System.Drawing.Size(96, 20);
             this.VideoCode.TabIndex = 3;
@@ -188,7 +215,7 @@
             // DueDate
             // 
             this.DueDate.Enabled = false;
-            this.DueDate.Location = new System.Drawing.Point(312, 50);
+            this.DueDate.Location = new System.Drawing.Point(290, 82);
             this.DueDate.Name = "DueDate";
             this.DueDate.Size = new System.Drawing.Size(96, 20);
             this.DueDate.TabIndex = 3;
@@ -196,21 +223,21 @@
             // BorrowDate
             // 
             this.BorrowDate.Enabled = false;
-            this.BorrowDate.Location = new System.Drawing.Point(128, 48);
+            this.BorrowDate.Location = new System.Drawing.Point(106, 80);
             this.BorrowDate.Name = "BorrowDate";
             this.BorrowDate.Size = new System.Drawing.Size(96, 20);
             this.BorrowDate.TabIndex = 3;
             // 
             // LoanCustomerID
             // 
-            this.LoanCustomerID.Location = new System.Drawing.Point(128, 15);
+            this.LoanCustomerID.Location = new System.Drawing.Point(106, 12);
             this.LoanCustomerID.Name = "LoanCustomerID";
             this.LoanCustomerID.Size = new System.Drawing.Size(96, 20);
             this.LoanCustomerID.TabIndex = 3;
             // 
             // AddVideo
             // 
-            this.AddVideo.Location = new System.Drawing.Point(286, 80);
+            this.AddVideo.Location = new System.Drawing.Point(264, 112);
             this.AddVideo.Name = "AddVideo";
             this.AddVideo.Size = new System.Drawing.Size(109, 23);
             this.AddVideo.TabIndex = 2;
@@ -221,7 +248,7 @@
             // LoanVideoCodeLabel
             // 
             this.LoanVideoCodeLabel.AutoSize = true;
-            this.LoanVideoCodeLabel.Location = new System.Drawing.Point(16, 84);
+            this.LoanVideoCodeLabel.Location = new System.Drawing.Point(16, 116);
             this.LoanVideoCodeLabel.Name = "LoanVideoCodeLabel";
             this.LoanVideoCodeLabel.Size = new System.Drawing.Size(62, 13);
             this.LoanVideoCodeLabel.TabIndex = 0;
@@ -230,7 +257,7 @@
             // LoanDueDateLabel
             // 
             this.LoanDueDateLabel.AutoSize = true;
-            this.LoanDueDateLabel.Location = new System.Drawing.Point(240, 52);
+            this.LoanDueDateLabel.Location = new System.Drawing.Point(218, 84);
             this.LoanDueDateLabel.Name = "LoanDueDateLabel";
             this.LoanDueDateLabel.Size = new System.Drawing.Size(56, 13);
             this.LoanDueDateLabel.TabIndex = 0;
@@ -239,7 +266,7 @@
             // LoanBorrowDateLabel
             // 
             this.LoanBorrowDateLabel.AutoSize = true;
-            this.LoanBorrowDateLabel.Location = new System.Drawing.Point(16, 52);
+            this.LoanBorrowDateLabel.Location = new System.Drawing.Point(16, 84);
             this.LoanBorrowDateLabel.Name = "LoanBorrowDateLabel";
             this.LoanBorrowDateLabel.Size = new System.Drawing.Size(69, 13);
             this.LoanBorrowDateLabel.TabIndex = 0;
@@ -395,6 +422,22 @@
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(0, 17);
             // 
+            // LoanCustomerName
+            // 
+            this.LoanCustomerName.Location = new System.Drawing.Point(106, 45);
+            this.LoanCustomerName.Name = "LoanCustomerName";
+            this.LoanCustomerName.Size = new System.Drawing.Size(96, 20);
+            this.LoanCustomerName.TabIndex = 3;
+            // 
+            // LoanCustomerNameLabel
+            // 
+            this.LoanCustomerNameLabel.AutoSize = true;
+            this.LoanCustomerNameLabel.Location = new System.Drawing.Point(16, 48);
+            this.LoanCustomerNameLabel.Name = "LoanCustomerNameLabel";
+            this.LoanCustomerNameLabel.Size = new System.Drawing.Size(85, 13);
+            this.LoanCustomerNameLabel.TabIndex = 0;
+            this.LoanCustomerNameLabel.Text = "Customer Name:";
+            // 
             // TransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,6 +498,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ReturnDueDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReturnRemarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn ToReturn;
+        private System.Windows.Forms.Button LookUpVideo;
+        private System.Windows.Forms.Button LookUpCustomer;
+        private System.Windows.Forms.TextBox LoanCustomerName;
+        private System.Windows.Forms.Label LoanCustomerNameLabel;
     }
 }
 

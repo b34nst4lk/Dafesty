@@ -54,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerLookUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerLookUpForm.Designer.cs">
+      <DependentUpon>CustomerLookUpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Exceptions.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>Dafesty.tt</DependentUpon>
@@ -87,6 +93,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomerLookUpForm.resx">
+      <DependentUpon>CustomerLookUpForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TransactionForm.resx">
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -273,5 +273,11 @@ namespace TransactionForm
                 ReturnOutput.Rows.Remove(row);
             }
         }
+
+        private void LookUpCustomer_Click(object sender, EventArgs e)
+        {
+            CustomerLookupForm f = new CustomerLookupForm(this, LoanCustomerID, LoanCustomerName);
+            f.ShowDialog();
+        }
     }
 }
