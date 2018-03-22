@@ -203,6 +203,12 @@ namespace TransactionForm
             f.ShowDialog();
         }
 
+        private void LookUpVideo_Click(object sender, EventArgs e)
+        {
+            MovieLookupForm f = new MovieLookupForm(this, VideoCode, MovieTitle);
+            f.ShowDialog();
+        }
+
         // Return Event Handlers
 
         private void ReturnSearchCustomer_Click(object sender, EventArgs e)
@@ -279,5 +285,7 @@ namespace TransactionForm
                 ReturnOutput.Rows.Remove(row);
             }
         }
+
+
     }
 }

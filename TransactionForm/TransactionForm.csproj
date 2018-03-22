@@ -54,7 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MovieLookupForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MovieLookupForm.Designer.cs">
+      <DependentUpon>MovieLookupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerLookupForm.cs">
       <SubType>Form</SubType>
@@ -95,6 +99,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MovieLookupForm.resx">
+      <DependentUpon>MovieLookupForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerLookupForm.resx">
       <DependentUpon>CustomerLookupForm.cs</DependentUpon>
     </EmbeddedResource>
