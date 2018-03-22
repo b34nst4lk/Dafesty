@@ -23,6 +23,7 @@ namespace TransactionForm
         public CustomerLookupForm()
         {
             InitializeComponent();
+            LookupOutput.AutoGenerateColumns = false;
             context = new DafestyEntities();
 
             lookupOutput = new BindingSource();
