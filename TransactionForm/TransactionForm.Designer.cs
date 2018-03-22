@@ -61,9 +61,11 @@
             this.StatusBar = new System.Windows.Forms.StatusStrip();
             this.Status = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.MovieTitleLabel = new System.Windows.Forms.Label();
+            this.MovieTitle = new System.Windows.Forms.TextBox();
             this.ReturnTransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReturnVideoCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MovieTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnMovieTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReturnDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReturnRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ToReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,11 +94,13 @@
             this.tabPage1.Controls.Add(this.Checkout);
             this.tabPage1.Controls.Add(this.ClearForm);
             this.tabPage1.Controls.Add(this.LoanOutput);
+            this.tabPage1.Controls.Add(this.MovieTitle);
             this.tabPage1.Controls.Add(this.VideoCode);
             this.tabPage1.Controls.Add(this.DueDate);
             this.tabPage1.Controls.Add(this.BorrowDate);
             this.tabPage1.Controls.Add(this.LoanCustomerName);
             this.tabPage1.Controls.Add(this.LoanCustomerID);
+            this.tabPage1.Controls.Add(this.MovieTitleLabel);
             this.tabPage1.Controls.Add(this.AddVideo);
             this.tabPage1.Controls.Add(this.LoanVideoCodeLabel);
             this.tabPage1.Controls.Add(this.LoanDueDateLabel);
@@ -119,6 +123,7 @@
             this.LookUpVideo.TabIndex = 6;
             this.LookUpVideo.Text = "...";
             this.LookUpVideo.UseVisualStyleBackColor = true;
+            this.LookUpVideo.Click += new System.EventHandler(this.LookUpVideo_Click);
             // 
             // LookUpCustomer
             // 
@@ -128,11 +133,11 @@
             this.LookUpCustomer.TabIndex = 6;
             this.LookUpCustomer.Text = "...";
             this.LookUpCustomer.UseVisualStyleBackColor = true;
-            this.LookUpCustomer.Click += new System.EventHandler(this.LookUpCustomer_Click);
+            this.LookUpCustomer.Click += new System.EventHandler(this.LookupCustomer_Click);
             // 
             // Checkout
             // 
-            this.Checkout.Location = new System.Drawing.Point(736, 424);
+            this.Checkout.Location = new System.Drawing.Point(736, 448);
             this.Checkout.Name = "Checkout";
             this.Checkout.Size = new System.Drawing.Size(75, 23);
             this.Checkout.TabIndex = 5;
@@ -142,7 +147,7 @@
             // 
             // ClearForm
             // 
-            this.ClearForm.Location = new System.Drawing.Point(648, 424);
+            this.ClearForm.Location = new System.Drawing.Point(648, 448);
             this.ClearForm.Name = "ClearForm";
             this.ClearForm.Size = new System.Drawing.Size(75, 23);
             this.ClearForm.TabIndex = 5;
@@ -162,7 +167,7 @@
             this.LoanRemarks,
             this.LoanStock,
             this.LoanDelete});
-            this.LoanOutput.Location = new System.Drawing.Point(8, 152);
+            this.LoanOutput.Location = new System.Drawing.Point(8, 176);
             this.LoanOutput.Name = "LoanOutput";
             this.LoanOutput.Size = new System.Drawing.Size(808, 256);
             this.LoanOutput.TabIndex = 4;
@@ -244,7 +249,7 @@
             // 
             // AddVideo
             // 
-            this.AddVideo.Location = new System.Drawing.Point(264, 112);
+            this.AddVideo.Location = new System.Drawing.Point(218, 142);
             this.AddVideo.Name = "AddVideo";
             this.AddVideo.Size = new System.Drawing.Size(109, 23);
             this.AddVideo.TabIndex = 2;
@@ -257,9 +262,9 @@
             this.LoanVideoCodeLabel.AutoSize = true;
             this.LoanVideoCodeLabel.Location = new System.Drawing.Point(16, 116);
             this.LoanVideoCodeLabel.Name = "LoanVideoCodeLabel";
-            this.LoanVideoCodeLabel.Size = new System.Drawing.Size(62, 13);
+            this.LoanVideoCodeLabel.Size = new System.Drawing.Size(65, 13);
             this.LoanVideoCodeLabel.TabIndex = 0;
-            this.LoanVideoCodeLabel.Text = "VideoCode:";
+            this.LoanVideoCodeLabel.Text = "Video Code:";
             // 
             // LoanDueDateLabel
             // 
@@ -321,7 +326,7 @@
             this.ReturnOutput.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ReturnTransactionID,
             this.ReturnVideoCode,
-            this.MovieTitle,
+            this.ReturnMovieTitle,
             this.ReturnDueDate,
             this.ReturnRemarks,
             this.ToReturn});
@@ -398,6 +403,22 @@
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(0, 17);
             // 
+            // MovieTitleLabel
+            // 
+            this.MovieTitleLabel.AutoSize = true;
+            this.MovieTitleLabel.Location = new System.Drawing.Point(16, 148);
+            this.MovieTitleLabel.Name = "MovieTitleLabel";
+            this.MovieTitleLabel.Size = new System.Drawing.Size(62, 13);
+            this.MovieTitleLabel.TabIndex = 0;
+            this.MovieTitleLabel.Text = "Movie Title:";
+            // 
+            // MovieTitle
+            // 
+            this.MovieTitle.Location = new System.Drawing.Point(104, 144);
+            this.MovieTitle.Name = "MovieTitle";
+            this.MovieTitle.Size = new System.Drawing.Size(96, 20);
+            this.MovieTitle.TabIndex = 3;
+            // 
             // ReturnTransactionID
             // 
             this.ReturnTransactionID.DataPropertyName = "TransactionID";
@@ -412,11 +433,11 @@
             this.ReturnVideoCode.Name = "ReturnVideoCode";
             this.ReturnVideoCode.ReadOnly = true;
             // 
-            // MovieTitle
+            // ReturnMovieTitle
             // 
-            this.MovieTitle.HeaderText = "Movie Title";
-            this.MovieTitle.Name = "MovieTitle";
-            this.MovieTitle.ReadOnly = true;
+            this.ReturnMovieTitle.HeaderText = "Movie Title";
+            this.ReturnMovieTitle.Name = "ReturnMovieTitle";
+            this.ReturnMovieTitle.ReadOnly = true;
             // 
             // ReturnDueDate
             // 
@@ -494,9 +515,11 @@
         private System.Windows.Forms.Button LookUpCustomer;
         private System.Windows.Forms.TextBox LoanCustomerName;
         private System.Windows.Forms.Label LoanCustomerNameLabel;
+        private System.Windows.Forms.TextBox MovieTitle;
+        private System.Windows.Forms.Label MovieTitleLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReturnTransactionID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReturnVideoCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MovieTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReturnMovieTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReturnDueDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReturnRemarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn ToReturn;

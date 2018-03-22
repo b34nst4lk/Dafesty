@@ -197,7 +197,7 @@ namespace TransactionForm
             }
         }
 
-        private void LookUpCustomer_Click(object sender, EventArgs e)
+        private void LookupCustomer_Click(object sender, EventArgs e)
         {
             CustomerLookupForm f = new CustomerLookupForm(this, LoanCustomerID, LoanCustomerName);
             f.ShowDialog();
