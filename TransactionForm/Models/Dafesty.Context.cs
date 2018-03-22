@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TransactionForm
+namespace TransactionForm.Models
 {
     using System;
     using System.Data.Entity;

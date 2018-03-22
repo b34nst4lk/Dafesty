@@ -54,58 +54,58 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MovieLookupForm.cs">
+    <Compile Include="Forms\MovieLookupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MovieLookupForm.Designer.cs">
+    <Compile Include="Forms\MovieLookupForm.Designer.cs">
       <DependentUpon>MovieLookupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomerLookupForm.cs">
+    <Compile Include="Forms\CustomerLookupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerLookupForm.Designer.cs">
+    <Compile Include="Forms\CustomerLookupForm.Designer.cs">
       <DependentUpon>CustomerLookupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Exceptions.cs" />
-    <Compile Include="Customer.cs">
+    <Compile Include="Models\Customer.cs">
       <DependentUpon>Dafesty.tt</DependentUpon>
     </Compile>
-    <Compile Include="Dafesty.Context.cs">
+    <Compile Include="Models\Dafesty.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Dafesty.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Dafesty.cs">
+    <Compile Include="Models\Dafesty.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Dafesty.tt</DependentUpon>
     </Compile>
-    <Compile Include="Dafesty.Designer.cs">
+    <Compile Include="Models\Dafesty.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Dafesty.edmx</DependentUpon>
     </Compile>
-    <Compile Include="IssueTran.cs">
+    <Compile Include="Models\IssueTran.cs">
       <DependentUpon>Dafesty.tt</DependentUpon>
     </Compile>
-    <Compile Include="Movie.cs">
+    <Compile Include="Models\Movie.cs">
       <DependentUpon>Dafesty.tt</DependentUpon>
     </Compile>
-    <Compile Include="TransactionForm.cs">
+    <Compile Include="Forms\TransactionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TransactionForm.Designer.cs">
+    <Compile Include="Forms\TransactionForm.Designer.cs">
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MovieLookupForm.resx">
+    <EmbeddedResource Include="Forms\MovieLookupForm.resx">
       <DependentUpon>MovieLookupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomerLookupForm.resx">
+    <EmbeddedResource Include="Forms\CustomerLookupForm.resx">
       <DependentUpon>CustomerLookupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransactionForm.resx">
+    <EmbeddedResource Include="Forms\TransactionForm.resx">
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -117,11 +117,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="Dafesty.edmx">
+    <EntityDeploy Include="Models\Dafesty.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Dafesty.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Dafesty.edmx.diagram">
+    <None Include="Models\Dafesty.edmx.diagram">
       <DependentUpon>Dafesty.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -144,12 +144,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Dafesty.Context.tt">
+    <Content Include="Models\Dafesty.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Dafesty.edmx</DependentUpon>
       <LastGenOutput>Dafesty.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Dafesty.tt">
+    <Content Include="Models\Dafesty.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Dafesty.edmx</DependentUpon>
       <LastGenOutput>Dafesty.cs</LastGenOutput>

@@ -40,11 +40,13 @@
             this.LoanRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LoanStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LoanDelete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MovieTitle = new System.Windows.Forms.TextBox();
             this.VideoCode = new System.Windows.Forms.TextBox();
             this.DueDate = new System.Windows.Forms.TextBox();
             this.BorrowDate = new System.Windows.Forms.TextBox();
             this.LoanCustomerName = new System.Windows.Forms.TextBox();
             this.LoanCustomerID = new System.Windows.Forms.TextBox();
+            this.MovieTitleLabel = new System.Windows.Forms.Label();
             this.AddVideo = new System.Windows.Forms.Button();
             this.LoanVideoCodeLabel = new System.Windows.Forms.Label();
             this.LoanDueDateLabel = new System.Windows.Forms.Label();
@@ -53,6 +55,12 @@
             this.LoanCustomerIDLabel = new System.Windows.Forms.Label();
             this.ReturnTab = new System.Windows.Forms.TabPage();
             this.ReturnOutput = new System.Windows.Forms.DataGridView();
+            this.ReturnTransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnVideoCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnMovieTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ToReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReturnClearForm = new System.Windows.Forms.Button();
             this.ReturnVideos = new System.Windows.Forms.Button();
             this.ReturnSearchCustomer = new System.Windows.Forms.Button();
@@ -61,14 +69,9 @@
             this.StatusBar = new System.Windows.Forms.StatusStrip();
             this.Status = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.MovieTitleLabel = new System.Windows.Forms.Label();
-            this.MovieTitle = new System.Windows.Forms.TextBox();
-            this.ReturnTransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReturnVideoCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReturnMovieTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReturnDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReturnRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ToReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ReturnCustomerName = new System.Windows.Forms.TextBox();
+            this.CustomerNameLabel = new System.Windows.Forms.Label();
             this.LoanTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoanOutput)).BeginInit();
@@ -210,6 +213,13 @@
             this.LoanDelete.ReadOnly = true;
             this.LoanDelete.Width = 98;
             // 
+            // MovieTitle
+            // 
+            this.MovieTitle.Location = new System.Drawing.Point(104, 144);
+            this.MovieTitle.Name = "MovieTitle";
+            this.MovieTitle.Size = new System.Drawing.Size(96, 20);
+            this.MovieTitle.TabIndex = 3;
+            // 
             // VideoCode
             // 
             this.VideoCode.Location = new System.Drawing.Point(106, 112);
@@ -246,6 +256,15 @@
             this.LoanCustomerID.Name = "LoanCustomerID";
             this.LoanCustomerID.Size = new System.Drawing.Size(96, 20);
             this.LoanCustomerID.TabIndex = 3;
+            // 
+            // MovieTitleLabel
+            // 
+            this.MovieTitleLabel.AutoSize = true;
+            this.MovieTitleLabel.Location = new System.Drawing.Point(16, 148);
+            this.MovieTitleLabel.Name = "MovieTitleLabel";
+            this.MovieTitleLabel.Size = new System.Drawing.Size(62, 13);
+            this.MovieTitleLabel.TabIndex = 0;
+            this.MovieTitleLabel.Text = "Movie Title:";
             // 
             // AddVideo
             // 
@@ -304,6 +323,9 @@
             // 
             // ReturnTab
             // 
+            this.ReturnTab.Controls.Add(this.ReturnCustomerName);
+            this.ReturnTab.Controls.Add(this.CustomerNameLabel);
+            this.ReturnTab.Controls.Add(this.button1);
             this.ReturnTab.Controls.Add(this.ReturnOutput);
             this.ReturnTab.Controls.Add(this.ReturnClearForm);
             this.ReturnTab.Controls.Add(this.ReturnVideos);
@@ -330,94 +352,11 @@
             this.ReturnDueDate,
             this.ReturnRemarks,
             this.ToReturn});
-            this.ReturnOutput.Location = new System.Drawing.Point(8, 88);
+            this.ReturnOutput.Location = new System.Drawing.Point(8, 126);
             this.ReturnOutput.Name = "ReturnOutput";
             this.ReturnOutput.Size = new System.Drawing.Size(800, 280);
             this.ReturnOutput.TabIndex = 7;
             this.ReturnOutput.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ReturnOutput_CellClick);
-            // 
-            // ReturnClearForm
-            // 
-            this.ReturnClearForm.Location = new System.Drawing.Point(560, 384);
-            this.ReturnClearForm.Name = "ReturnClearForm";
-            this.ReturnClearForm.Size = new System.Drawing.Size(120, 23);
-            this.ReturnClearForm.TabIndex = 6;
-            this.ReturnClearForm.Text = "Clear Form";
-            this.ReturnClearForm.UseVisualStyleBackColor = true;
-            this.ReturnClearForm.Click += new System.EventHandler(this.ClearForm_Click);
-            // 
-            // ReturnVideos
-            // 
-            this.ReturnVideos.Location = new System.Drawing.Point(688, 384);
-            this.ReturnVideos.Name = "ReturnVideos";
-            this.ReturnVideos.Size = new System.Drawing.Size(120, 23);
-            this.ReturnVideos.TabIndex = 6;
-            this.ReturnVideos.Text = "Return Movies";
-            this.ReturnVideos.UseVisualStyleBackColor = true;
-            this.ReturnVideos.Click += new System.EventHandler(this.ReturnVideos_Click);
-            // 
-            // ReturnSearchCustomer
-            // 
-            this.ReturnSearchCustomer.Location = new System.Drawing.Point(16, 50);
-            this.ReturnSearchCustomer.Name = "ReturnSearchCustomer";
-            this.ReturnSearchCustomer.Size = new System.Drawing.Size(120, 23);
-            this.ReturnSearchCustomer.TabIndex = 6;
-            this.ReturnSearchCustomer.Text = "Search Customer";
-            this.ReturnSearchCustomer.UseVisualStyleBackColor = true;
-            this.ReturnSearchCustomer.Click += new System.EventHandler(this.ReturnSearchCustomer_Click);
-            // 
-            // ReturnCustomerID
-            // 
-            this.ReturnCustomerID.Location = new System.Drawing.Point(104, 20);
-            this.ReturnCustomerID.Name = "ReturnCustomerID";
-            this.ReturnCustomerID.Size = new System.Drawing.Size(96, 20);
-            this.ReturnCustomerID.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Customer ID:";
-            // 
-            // StatusBar
-            // 
-            this.StatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Status,
-            this.StatusLabel});
-            this.StatusBar.Location = new System.Drawing.Point(0, 565);
-            this.StatusBar.Name = "StatusBar";
-            this.StatusBar.Size = new System.Drawing.Size(864, 22);
-            this.StatusBar.TabIndex = 1;
-            this.StatusBar.Text = "statusStrip1";
-            // 
-            // Status
-            // 
-            this.Status.Name = "Status";
-            this.Status.Size = new System.Drawing.Size(0, 17);
-            // 
-            // StatusLabel
-            // 
-            this.StatusLabel.Name = "StatusLabel";
-            this.StatusLabel.Size = new System.Drawing.Size(0, 17);
-            // 
-            // MovieTitleLabel
-            // 
-            this.MovieTitleLabel.AutoSize = true;
-            this.MovieTitleLabel.Location = new System.Drawing.Point(16, 148);
-            this.MovieTitleLabel.Name = "MovieTitleLabel";
-            this.MovieTitleLabel.Size = new System.Drawing.Size(62, 13);
-            this.MovieTitleLabel.TabIndex = 0;
-            this.MovieTitleLabel.Text = "Movie Title:";
-            // 
-            // MovieTitle
-            // 
-            this.MovieTitle.Location = new System.Drawing.Point(104, 144);
-            this.MovieTitle.Name = "MovieTitle";
-            this.MovieTitle.Size = new System.Drawing.Size(96, 20);
-            this.MovieTitle.TabIndex = 3;
             // 
             // ReturnTransactionID
             // 
@@ -456,6 +395,98 @@
             this.ToReturn.HeaderText = "Click to toggle Return";
             this.ToReturn.Name = "ToReturn";
             this.ToReturn.ReadOnly = true;
+            // 
+            // ReturnClearForm
+            // 
+            this.ReturnClearForm.Location = new System.Drawing.Point(560, 422);
+            this.ReturnClearForm.Name = "ReturnClearForm";
+            this.ReturnClearForm.Size = new System.Drawing.Size(120, 23);
+            this.ReturnClearForm.TabIndex = 6;
+            this.ReturnClearForm.Text = "Clear Form";
+            this.ReturnClearForm.UseVisualStyleBackColor = true;
+            this.ReturnClearForm.Click += new System.EventHandler(this.ClearForm_Click);
+            // 
+            // ReturnVideos
+            // 
+            this.ReturnVideos.Location = new System.Drawing.Point(688, 422);
+            this.ReturnVideos.Name = "ReturnVideos";
+            this.ReturnVideos.Size = new System.Drawing.Size(120, 23);
+            this.ReturnVideos.TabIndex = 6;
+            this.ReturnVideos.Text = "Return Movies";
+            this.ReturnVideos.UseVisualStyleBackColor = true;
+            this.ReturnVideos.Click += new System.EventHandler(this.ReturnVideos_Click);
+            // 
+            // ReturnSearchCustomer
+            // 
+            this.ReturnSearchCustomer.Location = new System.Drawing.Point(16, 88);
+            this.ReturnSearchCustomer.Name = "ReturnSearchCustomer";
+            this.ReturnSearchCustomer.Size = new System.Drawing.Size(120, 23);
+            this.ReturnSearchCustomer.TabIndex = 6;
+            this.ReturnSearchCustomer.Text = "Search Customer";
+            this.ReturnSearchCustomer.UseVisualStyleBackColor = true;
+            this.ReturnSearchCustomer.Click += new System.EventHandler(this.ReturnSearchCustomer_Click);
+            // 
+            // ReturnCustomerID
+            // 
+            this.ReturnCustomerID.Location = new System.Drawing.Point(104, 20);
+            this.ReturnCustomerID.Name = "ReturnCustomerID";
+            this.ReturnCustomerID.Size = new System.Drawing.Size(96, 20);
+            this.ReturnCustomerID.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Customer ID:";
+            // 
+            // StatusBar
+            // 
+            this.StatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Status,
+            this.StatusLabel});
+            this.StatusBar.Location = new System.Drawing.Point(0, 565);
+            this.StatusBar.Name = "StatusBar";
+            this.StatusBar.Size = new System.Drawing.Size(864, 22);
+            this.StatusBar.TabIndex = 1;
+            this.StatusBar.Text = "statusStrip1";
+            // 
+            // Status
+            // 
+            this.Status.Name = "Status";
+            this.Status.Size = new System.Drawing.Size(0, 17);
+            // 
+            // StatusLabel
+            // 
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(0, 17);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(216, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(32, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "...";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // ReturnCustomerName
+            // 
+            this.ReturnCustomerName.Location = new System.Drawing.Point(104, 45);
+            this.ReturnCustomerName.Name = "ReturnCustomerName";
+            this.ReturnCustomerName.Size = new System.Drawing.Size(96, 20);
+            this.ReturnCustomerName.TabIndex = 10;
+            // 
+            // CustomerNameLabel
+            // 
+            this.CustomerNameLabel.AutoSize = true;
+            this.CustomerNameLabel.Location = new System.Drawing.Point(14, 48);
+            this.CustomerNameLabel.Name = "CustomerNameLabel";
+            this.CustomerNameLabel.Size = new System.Drawing.Size(85, 13);
+            this.CustomerNameLabel.TabIndex = 9;
+            this.CustomerNameLabel.Text = "Customer Name:";
             // 
             // TransactionForm
             // 
@@ -523,6 +554,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ReturnDueDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReturnRemarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn ToReturn;
+        private System.Windows.Forms.TextBox ReturnCustomerName;
+        private System.Windows.Forms.Label CustomerNameLabel;
+        private System.Windows.Forms.Button button1;
     }
 }
 
