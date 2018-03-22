@@ -27,7 +27,6 @@ namespace TransactionForm
             context = new DafestyEntities();
 
             lookupOutput = new BindingSource();
-            lookupOutput.DataSource = context.Customers.ToList();
             RefreshLookupOutput();
             LookupOutput.DataSource = lookupOutput;
         }
